@@ -13,6 +13,10 @@ These Google Sheets contain data from the 2017 Honduras presidential election. A
 * [datos de los centros de votación (CERs) / data from polling centers](https://docs.google.com/spreadsheets/d/1ePmdXhiQiQKwTDuO7ri6V6fPKoMre1Qww_f1rWXVLOM/edit?usp=sharing)
 * [datos de las actas (MERs) / data from polling station tally sheets](https://docs.google.com/spreadsheets/d/15ib1dNaE9Uhp9aDzIb0r6pqZpy8KaEXtucxdoFDAOqg/edit?usp=sharing)
 
+
+---------
+
+
 ### Más información y descargos de responsabilidad
 
 Todo el mundo puede:
