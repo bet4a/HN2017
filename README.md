@@ -29,7 +29,7 @@ Estas hojas de cálculo no son oficiales. No son producto de un gobierno ni una 
 
 Los datos pueden contener errores. Las hojas de cálculo son obras en marcha. Pueden ser alteradas en cualquier momento. Los usuarios que requieren una versión fija de los datos deben hacer sus propias copias.
 
-¿Preguntas? Encuéntrame en Twitter [@bret_abel](https://twitter.com/bret_abel/). 💁
+¿Preguntas? Encuéntrame en Twitter [@bret_abel](https://twitter.com/bret_abel/). 💁‍♂️
 
 ### Further information and disclaimers
 
@@ -43,7 +43,11 @@ These spreadsheets are not official. They are not the product of a government or
 
 The data may contain errors. The spreadsheets are works-in-progress—they may be altered at any time. Users who require a fixed version of this data should make their own copies.
 
-Questions? Get in touch with me on Twitter [@bret_abel](https://twitter.com/bret_abel/). 💁
+Questions? Get in touch with me on Twitter [@bret_abel](https://twitter.com/bret_abel/). 💁‍♂️
+
+
+------------
+
 
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
   <a rel="license"
