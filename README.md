@@ -17,6 +17,16 @@ These Google Sheets contain data from the 2017 Honduras presidential election. A
 ---------
 
 
+### ⚠️ Actualizaciones importantes/Important updates
+
+ Fecha&nbsp;y&nbsp;hora/Datetime&nbsp;&nbsp;&nbsp; | en español | in English 
+:------------|------------|------------
+`09-dec-2017`<br>`07:35 AM GMT-6` | <span style="font-size:0.75em;">Recientemente, TSE revisó algunos datos de resultados del departamento de Lempira. Las hojas de cálculo están siendo modificados para reflejar estos cambios. Mientras que el trabajo está en curso, ciertos números en las hojas de cálculo no se sincronizarán.</span> | <span style="font-size:0.75em;">Recent minor revisions from TSE (Hondura’s Supreme Electoral Tribunal) have been made to result numbers from the department of Lempira. The spreadsheets are currently being modified to reflect these changes. While this work is underway, certain numbers will be unsynchornized between spreadsheets.</span>
+
+
+---------
+
+
 ### Más información y descargos de responsabilidad
 
 Todo el mundo puede:
