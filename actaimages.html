@@ -19,6 +19,30 @@
 				font-weight: 400;
 				font-size:100%;
 			}
+			#controls {		
+				position: fixed;
+				top: 0;
+				left: 0;
+				background-color: rgba(207,216,220,0.75);
+				width: 100%;
+				padding: 0.25rem;
+				font-size: 1.25em;
+			}
+			#controls label {
+				margin: 0 0.5em;
+			}
+			#controls input[type=submit] {
+				font-size: 1em;
+				margin: 0 0.5em;
+				font-family: "Roboto";
+			}
+			#controls #actaIDField {
+				font-size: 1em;
+				font-family: "Roboto";
+			}
+			#image {
+				margin-top: 1.5em;
+			}
 			#image img {
 				min-width: 800px;
 				width: 100%;
@@ -47,7 +71,6 @@
 					document.getElementById("actaSpecialImage").src = "";
 					if (Number.isInteger(actaID) && actaID >= 1 && actaID <= 18128) {
 						let fullActaID = actaID.toString().padStart(5, "0");
-						console.log(fullActaID);
 						let originalImageURL = "https://s3.amazonaws.com/uploadtrailhn/" + fullActaID + "104.JPG";
 						let specialImageURL = "https://s3.amazonaws.com/uploadtrailhn/" + fullActaID + "159.JPG";
 						console.log(originalImageURL);
