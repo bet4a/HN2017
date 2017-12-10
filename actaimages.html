@@ -43,6 +43,8 @@
 				document.getElementById("actaForm").addEventListener("submit", (e) => {
 					e.preventDefault();
 					let actaID = Number.parseInt(document.getElementById("actaIDField").value);
+					document.getElementById("actaOriginalImage").src = "";
+					document.getElementById("actaSpecialImage").src = "";
 					if (Number.isInteger(actaID) && actaID >= 1 && actaID <= 18128) {
 						let fullActaID = actaID.toString().padStart(5, "0");
 						console.log(fullActaID);
