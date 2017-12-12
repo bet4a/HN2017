@@ -112,7 +112,7 @@
 							if(xmlhttp.readyState==4) { 
 								let header = document.createElement("h2");
 								let date = new Date(xmlhttp.getResponseHeader("last-modified"));
-								header.innerText = "last-modified: " date.toLocaleString("arab", {timeZone: "America/Tegucigalpa", timeZoneName: "short"});
+								header.innerText = "last-modified: " + date.toLocaleString("arab", {timeZone: "America/Tegucigalpa", timeZoneName: "short"});
 								thisImage.parentNode.insertBefore(header, thisImg);
 							}
 						}
