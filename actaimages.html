@@ -110,10 +110,13 @@
 					let xmlhttp = new XMLHttpRequest();
 					xmlhttp.addEventListener("load", (e) => {
 						if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-							let header = document.createElement("h2");
+							let headerModified = document.createElement("h2");
 							let date = new Date(xmlhttp.getResponseHeader("last-modified"));
-							header.innerHTML = "last-modified: " + "<span style='font-weight: 500'>" +  date.toLocaleString("arab", {timeZone: "America/Tegucigalpa", timeZoneName: "short"}) + "</span>";
-							imgEl.parentNode.insertBefore(header, imgEl);
+							headerModified.innerHTML = "last-modified: " + "<span style='font-weight: 500'>" +  date.toLocaleString("arab", {timeZone: "America/Tegucigalpa", timeZoneName: "short"}) + "</span>";
+							
+							/*let headerSize = document.createElement("h2");
+							headerSize.innerHTML = "tamaño: " + "??";*/
+							imgEl.parentNode.insertBefore(headerModified, imgEl);
 							imgEl.src = URL;
 							imgEl.classList.remove("hidden");
 							lblEl.classList.remove("hidden");
@@ -150,6 +153,13 @@
 						attemptImgLoad(actaEsp2Img, actaEsp2Lbl, specialEscrutinioImageURL, "https://escrutinioespecial.tse.hn/Acta.html?nivel=1&mer=" + actaID);
 						
 					}
+				});
+				[actaOrigImg, actaEsp1Img, actaEsp2Img].forEach((img) => {
+					img.addEventListener("load", () => {
+						let header = document.createElement("h2");
+						header.innerHTML = "dimensiones: " + "<span style='font-weight: 500'>" +  img.naturalWidth + " × " + img.naturalHeight + "</span>";
+						img.parentNode.insertBefore(header, img);
+					});
 				});
 				document.getElementById("actaIDField").addEventListener("click", (e) => {
 					e.target.select();
