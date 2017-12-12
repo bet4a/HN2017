@@ -41,7 +41,7 @@
 				font-family: "Roboto";
 			}
 			#image {
-				margin-top: 1.5em;
+				margin-top: 3em;
 			}
 			#image img {
 				min-width: 800px;
@@ -49,6 +49,11 @@
 			}
 			#image img.hidden {
 				display: none;
+			}
+			h2 {
+				font-size: 1.5em;
+				margin-left: 0.25em;
+				margin-bottom: 0;
 			}
 		</style>
 	</head>
@@ -70,6 +75,9 @@
 				'use strict';
 				document.getElementById("actaForm").addEventListener("submit", (e) => {
 					e.preventDefault();
+					document.querySelectorAll("h2").forEach((header) => {
+						header.remove();
+					}
 					let actaID = Number.parseInt(document.getElementById("actaIDField").value);
 					document.getElementById("actaOriginalImage").src = "";
 					document.getElementById("actaSpecialResultadoImage").src = "";
@@ -97,11 +105,15 @@
 						img.classList.add("hidden");	
 					});
 					img.addEventListener("load", (e) => {
+						let thisImg = e.path[0];
 						let xmlhttp = new XMLHttpRequest();
-						xmlhttp.open("HEAD", "https://cors-anywhere.herokuapp.com/" + e.path[0].src); 
+						xmlhttp.open("HEAD", "https://cors-anywhere.herokuapp.com/" + thisImg.src); 
 						xmlhttp.onreadystatechange=function() {
 							if(xmlhttp.readyState==4) { 
-								console.log(xmlhttp.getAllResponseHeaders());
+								let header = document.createElement("h2");
+								let date = new Date(xmlhttp.getResponseHeader("last-modified"));
+								header.innerText = "last-modified: " date.toLocaleString("arab", {timeZone: "America/Tegucigalpa", timeZoneName: "short"});
+								thisImage.parentNode.insertBefore(header, thisImg);
 							}
 						}
 						xmlhttp.send(); 
