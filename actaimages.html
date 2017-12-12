@@ -4,16 +4,18 @@
 		<meta charset="UTF-8">
 		<title>Fetch acta images</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 		<style>
 			html {
 				box-sizing: border-box;
+				font-size: 16px;
 			}
 			*, *:before, *:after {
 				box-sizing: inherit;
 			}
 			body {
 				color: #000;
+				background-color: #dee4e6;
 				font-family: 'Roboto', sans-serif;
 				margin: 0;
 				font-weight: 400;
@@ -21,15 +23,16 @@
 			}
 			#controls {		
 				position: fixed;
+				color: white;
 				top: 0;
 				left: 0;
-				background-color: rgba(207,216,220,0.75);
+				background-color: rgba(69,90,100,0.75);
 				width: 100%;
 				padding: 0.25rem;
 				font-size: 1.25em;
 			}
 			#controls label {
-				margin: 0 0.5em;
+				margin: 0 0.5rem;
 			}
 			#controls input[type=submit] {
 				font-size: 1em;
@@ -40,20 +43,34 @@
 				font-size: 1em;
 				font-family: "Roboto";
 			}
-			#image {
+			#images {
 				margin-top: 3em;
 			}
-			#image img {
+			#images img {
 				min-width: 800px;
 				width: 100%;
+				margin-bottom: 1.5em;
 			}
-			#image img.hidden {
+			#images .hidden {
 				display: none;
 			}
-			h2 {
-				font-size: 1.5em;
-				margin-left: 0.25em;
+			h1 {
+				font-size: 1.25em;
+				margin-left: 0.75rem;
 				margin-bottom: 0;
+			}
+			h2 {
+				font-size: 1.125em;
+				font-weight: 400;
+				margin: 0;
+				margin-left: 0.75rem;
+			}
+			h1 a {
+				color: #0091ea;
+				text-decoration: none;
+			}
+			h1 a:hover {
+				text-decoration: underline;
 			}
 		</style>
 	</head>
@@ -65,59 +82,77 @@
 				<input type="submit" value="Go">
 			</form>
 		</div>
-		<div id="image">
+		<div id="images">
+			<h1 id="actaOriginalLabel" class="hidden">acta original <span style="font-weight:500;">(<a href="" target="_blank" rel="noopener noreferrer">resultadosgenerales2017.tse.hn</a>)</span></h1>
 			<img id="actaOriginalImage" src="" class="hidden">
+			
+			<h1 id="actaSpecialResultadoLabel" class="hidden">acta de escrutinio especial <span style="font-weight:500;">(<a href="" target="_blank" rel="noopener noreferrer">resultadosgenerales2017.tse.hn</a>)</span></h1>
 			<img id="actaSpecialResultadoImage" src="" class="hidden">
+			
+			<h1 id="actaSpecialEscrutinioLabel" class="hidden">acta de escrutinio especial <span style="font-weight:500;">(<a href="" target="_blank" rel="noopener noreferrer">escrutinioespecial.tse.hn</a>)</span></h1>
 			<img id="actaSpecialEscrutinioImage" src="" class="hidden">
 		</div>
 		<script>
 			(function() {
 				'use strict';
+				/* yes i know how ugly this code is.
+				ya sé que este código es un disastre. */
+				let actaOrigImg = document.getElementById("actaOriginalImage");
+				let actaOrigLbl = document.getElementById("actaOriginalLabel");
+				
+				let actaEsp1Img = document.getElementById("actaSpecialResultadoImage");
+				let actaEsp1Lbl = document.getElementById("actaSpecialResultadoLabel");
+				
+				let actaEsp2Img = document.getElementById("actaSpecialEscrutinioImage");
+				let actaEsp2Lbl = document.getElementById("actaSpecialEscrutinioLabel");
+				
+				let attemptImgLoad = function(imgEl, lblEl, URL, actaLink) {
+					let xmlhttp = new XMLHttpRequest();
+					xmlhttp.addEventListener("load", (e) => {
+						if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+							let header = document.createElement("h2");
+							let date = new Date(xmlhttp.getResponseHeader("last-modified"));
+							header.innerHTML = "last-modified: " + "<span style='font-weight: 500'>" +  date.toLocaleString("arab", {timeZone: "America/Tegucigalpa", timeZoneName: "short"}) + "</span>";
+							imgEl.parentNode.insertBefore(header, imgEl);
+							imgEl.src = URL;
+							imgEl.classList.remove("hidden");
+							lblEl.classList.remove("hidden");
+							lblEl.querySelector("a").href = actaLink;
+						}
+					});
+					xmlhttp.open("HEAD", "https://dry-sierra-94326.herokuapp.com/" + URL); 
+					xmlhttp.send(); 
+				};
+				
 				document.getElementById("actaForm").addEventListener("submit", (e) => {
 					e.preventDefault();
-					document.querySelectorAll("h2").forEach((header) => {
-						header.remove();
+					document.querySelectorAll("#images h2").forEach((lmHeader) => {
+						lmHeader.remove();
 					});
 					let actaID = Number.parseInt(document.getElementById("actaIDField").value);
-					document.getElementById("actaOriginalImage").src = "";
-					document.getElementById("actaSpecialResultadoImage").src = "";
-					document.getElementById("actaSpecialEscrutinioImage").src = "";
-					document.getElementById("actaOriginalImage").classList.remove("hidden");
-					document.getElementById("actaSpecialResultadoImage").classList.remove("hidden");
-					document.getElementById("actaSpecialEscrutinioImage").classList.remove("hidden");
+					actaOrigImg.src = "";
+					actaEsp1Img.src = "";
+					actaEsp2Img.src = "";
+					actaOrigImg.classList.add("hidden");
+					actaEsp1Img.classList.add("hidden");
+					actaEsp2Img.classList.add("hidden");
+					actaOrigLbl.classList.add("hidden");
+					actaEsp1Lbl.classList.add("hidden");
+					actaEsp2Lbl.classList.add("hidden");
 					if (Number.isInteger(actaID) && actaID >= 1 && actaID <= 18128) {
 						let fullActaID = actaID.toString().padStart(5, "0");
 						let originalImageURL = "https://s3.amazonaws.com/uploadtrailhn/" + fullActaID + "104.JPG";
 						let specialResultImageURL = "https://s3.amazonaws.com/uploadtrailhn/" + fullActaID + "159.JPG";
 						let specialEscrutinioImageURL = "https://s3.amazonaws.com/uploadtrailhnespecial/" + fullActaID + "159.JPG";
-						console.log(originalImageURL);
-						document.getElementById("actaOriginalImage").src = originalImageURL;
-						document.getElementById("actaSpecialResultadoImage").src = specialResultImageURL;
-						document.getElementById("actaSpecialEscrutinioImage").src = specialEscrutinioImageURL;
+						
+						attemptImgLoad(actaOrigImg, actaOrigLbl, originalImageURL, "https://resultadosgenerales2017.tse.hn/Acta.html?nivel=1&mer=" + actaID);
+						attemptImgLoad(actaEsp1Img, actaEsp1Lbl, specialResultImageURL, "https://resultadosgenerales2017.tse.hn/Acta.html?nivel=1&mer=" + actaID);
+						attemptImgLoad(actaEsp2Img, actaEsp2Lbl, specialEscrutinioImageURL, "https://escrutinioespecial.tse.hn/Acta.html?nivel=1&mer=" + actaID);
+						
 					}
 				});
 				document.getElementById("actaIDField").addEventListener("click", (e) => {
 					e.target.select();
-				});
-				["actaOriginalImage", "actaSpecialResultadoImage", "actaSpecialEscrutinioImage"].forEach((imgId) => {
-					let img = document.getElementById(imgId);
-					img.addEventListener("error", (e) => {
-						img.classList.add("hidden");	
-					});
-					img.addEventListener("load", (e) => {
-						let thisImg = e.path[0];
-						let xmlhttp = new XMLHttpRequest();
-						xmlhttp.open("HEAD", "https://cors-anywhere.herokuapp.com/" + thisImg.src); 
-						xmlhttp.onreadystatechange=function() {
-							if(xmlhttp.readyState==4) { 
-								let header = document.createElement("h2");
-								let date = new Date(xmlhttp.getResponseHeader("last-modified"));
-								header.innerText = "last-modified: " + date.toLocaleString("arab", {timeZone: "America/Tegucigalpa", timeZoneName: "short"});
-								thisImg.parentNode.insertBefore(header, thisImg);
-							}
-						}
-						xmlhttp.send(); 
-					});
 				});
 			})();
 		</script>
