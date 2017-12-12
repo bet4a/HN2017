@@ -47,6 +47,9 @@
 				min-width: 800px;
 				width: 100%;
 			}
+			#image img.hidden {
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -58,8 +61,9 @@
 			</form>
 		</div>
 		<div id="image">
-			<img id="actaOriginalImage" src="">
-			<img id="actaSpecialImage" src="">
+			<img id="actaOriginalImage" src="" class="hidden">
+			<img id="actaSpecialResultadoImage" src="" class="hidden">
+			<img id="actaSpecialEscrutinioImage" src="" class="hidden">
 		</div>
 		<script>
 			(function() {
@@ -68,18 +72,40 @@
 					e.preventDefault();
 					let actaID = Number.parseInt(document.getElementById("actaIDField").value);
 					document.getElementById("actaOriginalImage").src = "";
-					document.getElementById("actaSpecialImage").src = "";
+					document.getElementById("actaSpecialResultadoImage").src = "";
+					document.getElementById("actaSpecialEscrutinioImage").src = "";
+					document.getElementById("actaOriginalImage").classList.remove("hidden");
+					document.getElementById("actaSpecialResultadoImage").classList.remove("hidden");
+					document.getElementById("actaSpecialEscrutinioImage").classList.remove("hidden");
 					if (Number.isInteger(actaID) && actaID >= 1 && actaID <= 18128) {
 						let fullActaID = actaID.toString().padStart(5, "0");
 						let originalImageURL = "https://s3.amazonaws.com/uploadtrailhn/" + fullActaID + "104.JPG";
-						let specialImageURL = "https://s3.amazonaws.com/uploadtrailhn/" + fullActaID + "159.JPG";
+						let specialResultImageURL = "https://s3.amazonaws.com/uploadtrailhn/" + fullActaID + "159.JPG";
+						let specialEscrutinioImageURL = "https://s3.amazonaws.com/uploadtrailhnespecial/" + fullActaID + "159.JPG";
 						console.log(originalImageURL);
 						document.getElementById("actaOriginalImage").src = originalImageURL;
-						document.getElementById("actaSpecialImage").src = specialImageURL;
+						document.getElementById("actaSpecialResultadoImage").src = specialResultImageURL;
+						document.getElementById("actaSpecialEscrutinioImage").src = specialEscrutinioImageURL;
 					}
 				});
 				document.getElementById("actaIDField").addEventListener("click", (e) => {
 					e.target.select();
+				});
+				["actaOriginalImage", "actaSpecialResultadoImage", "actaSpecialEscrutinioImage"].forEach((imgId) => {
+					let img = document.getElementById(imgId);
+					img.addEventListener("error", (e) => {
+						img.classList.add("hidden");	
+					});
+					img.addEventListener("load", (e) => {
+						let xmlhttp = new XMLHttpRequest();
+						xmlhttp.open("HEAD", e.path[0].src); 
+						xmlhttp.onreadystatechange=function() {
+							if(xmlhttp.readyState==4) { 
+								console.log(xmlhttp.getAllResponseHeaders());
+							}
+						}
+						xmlhttp.send(); 
+					});
 				});
 			})();
 		</script>
