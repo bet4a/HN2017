@@ -98,7 +98,7 @@
 					});
 					img.addEventListener("load", (e) => {
 						let xmlhttp = new XMLHttpRequest();
-						xmlhttp.open("HEAD", e.path[0].src); 
+						xmlhttp.open("HEAD", "https://cors-anywhere.herokuapp.com/" + e.path[0].src); 
 						xmlhttp.onreadystatechange=function() {
 							if(xmlhttp.readyState==4) { 
 								console.log(xmlhttp.getAllResponseHeaders());
