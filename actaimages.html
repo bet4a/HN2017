@@ -78,7 +78,7 @@
 		<div id="controls">
 			<form id="actaForm">
 				<label for="actaIDField">MER No: </label>
-				<input id="actaIDField" type="number" min="1" max="18128" maxlength="5">
+				<input id="actaIDField" type="number" min="1" max="18128">
 				<input type="submit" value="Go">
 			</form>
 		</div>
@@ -157,7 +157,7 @@
 				[actaOrigImg, actaEsp1Img, actaEsp2Img].forEach((img) => {
 					img.addEventListener("load", () => {
 						let header = document.createElement("h2");
-						header.innerHTML = "dimensiones: " + "<span style='font-weight: 500'>" +  img.naturalWidth + " × " + img.naturalHeight + "</span>";
+						header.innerHTML = "dimensiones: " + "<span style='font-weight: 500'>" +  img.naturalWidth + " × " + img.naturalHeight + " (" + Math.round((img.naturalWidth*img.naturalHeight)/10000)/100 + " megapíxeles)</span>";
 						img.parentNode.insertBefore(header, img);
 					});
 				});
