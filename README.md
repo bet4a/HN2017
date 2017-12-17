@@ -22,7 +22,7 @@ These Google Sheets contain data from the 2017 Honduras presidential election. A
 :------------|------------|------------
 [PDF](https://bet4a.github.io/HN2017/HNeleccion2017_excesocargaelectoral.pdf) | Serie de gráficos: Diferencias entre el *número total de electores* (carga electoral) y la *población de adultos proyectada (2017)* de adultos en cada municipio. ¡Mil gracias a [@edusanchez19us](https://www.twitter.com/edusanchez19us) por crear estos gráficos y permitirme compartirlos aquí! | Graphs: The differences between the *total number of registered voters* and the *projected adult population (2017)* for each municipality. Thanks to [@edusanchez19us](https://www.twitter.com/edusanchez19us) for his hard work creating this document and permitting me to share it here!
 [Google Mapa compartido](https://drive.google.com/open?id=1lKY77psSw7Y4FTcVZzs82_k9gvtp0RFN&usp=sharing) | Los límites de los **municipios** hondureños (el nivel administrativo debajo de los departamentos). | The boundaries of Honduran **municipalities** (the administrative level below departments).
-[Google Mapa compartido](https://drive.google.com/open?id=1lKY77psSw7Y4FTcVZzs82_k9gvtp0RFN&usp=sharing) | Los límites de las **aldeas** hondureñas (el nivel administrativo debajo de los municipos). | The boundaries of Honduran **aldeas** (the administrative level below municipalities).
+[Google Mapa compartido](https://drive.google.com/open?id=1T8jCDR2ZttmELoJbrKcGnM6w-AoJrym_&usp=sharing) | Los límites de las **aldeas** hondureñas (el nivel administrativo debajo de los municipos). | The boundaries of Honduran **aldeas** (the administrative level below municipalities).
 
 ---------
 
