@@ -6,7 +6,7 @@ Estas Hojas de Cálculo de Google (Google Sheets) contienen datos de las eleccio
 
 These Google Sheets contain data from the 2017 Honduras presidential election. All of the data was retrieved from the offical results website from Honduras’ Supreme Electoral Tribunal (*Tribunal Supremo Electoral*, or TSE). 
 
-## Enlaces/Links
+## Hojas de Cálculo (de Google) / Google Sheets
 
 * [datos a nivel departamental / department-level data](https://docs.google.com/spreadsheets/d/1ONAIYVqrbsEpvFp7eiI3si1B4hzArD930R5Jt86wdPQ/edit?usp=sharing)
 * [datos a nivel municipal / municipality-level data](https://docs.google.com/spreadsheets/d/17IVcEEqqnjQtbFBQV-rj2nj2mJO8kBD7hjdmbnqTYqI/edit?usp=sharing)
@@ -16,19 +16,18 @@ These Google Sheets contain data from the 2017 Honduras presidential election. A
 
 ---------
 
+## Otros recursos / other resources
 
-### ⚠️ Actualizaciones importantes/Important updates
-
- Fecha&nbsp;y&nbsp;hora/Datetime&nbsp;&nbsp;&nbsp; | en español | in English 
+ Link&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| descripción | description
 :------------|------------|------------
-`09-dec-2017`<br>`08:57 AM GMT-6` | <span style="font-size:0.75em;">Las hojas de cálculo se han actualizado. Todos los datos ahora deben coincidir con los números de resultados de TSE. El único cambio fue para [MER 13362](https://resultadosgenerales2017.tse.hn/Acta.html?nivel=1&mer=13362) (La Iguala, Lempira). Anteriormente, TSE registraba incorrectamente cero votos para todos los partidos, excepto el Partido Nacional. Ahora todos los votos para el MER se cuentan correctamente y coinciden con la imagen de la acta escaneada.</span> | <span style="font-size:0.75em;">The spreadsheets have been updated. All data should now match the result numbers from TSE. The only change was to [MER 13362](https://resultadosgenerales2017.tse.hn/Acta.html?nivel=1&mer=13362) (La Iguala, Lempira). Previously, TSE incorrectly listed 0 votes for every party except Partido Nacional. Now the other vounts for the MER are correctly counted and match the scanned record image.</span>
-`09-dec-2017`<br>`07:35 AM GMT-6` | <span style="font-size:0.75em;">Recientemente, TSE revisó algunos datos de resultados del departamento de Lempira. Las hojas de cálculo están siendo modificados para reflejar estos cambios. Mientras que el trabajo está en curso, ciertos números en las hojas de cálculo no se sincronizarán.</span> | <span style="font-size:0.75em;">Recent minor revisions from TSE (Hondura’s Supreme Electoral Tribunal) have been made to result numbers from the department of Lempira. The spreadsheets are currently being modified to reflect these changes. While this work is underway, certain numbers will be unsynchornized between spreadsheets.</span>
-
+[PDF](https://bet4a.github.io/HN2017/HNeleccion2017_excesocargaelectoral.pdf) | Serie de gráficos: Diferencias entre el *número total de electores* (carga electoral) y la *población de adultos proyectada (2017)* de adultos en cada municipio. ¡Mil gracias a [@edusanchez19us](https://www.twitter.com/edusanchez19us) por crear estos gráficos y permitirme compartirlos aquí! | Graphs: The differences between the *total number of registered voters* and the *projected adult population (2017)* for each municipality. Thanks to [@edusanchez19us](https://www.twitter.com/edusanchez19us) for his hard work creating this document and permitting me to share it here!
+[Google Mapa compartido](https://drive.google.com/open?id=1lKY77psSw7Y4FTcVZzs82_k9gvtp0RFN&usp=sharing) | Los límites de los **municipios** hondureños (el nivel administrativo debajo de los departamentos). | The boundaries of Honduran **municipalities** (the administrative level below departments).
+[Google Mapa compartido](https://drive.google.com/open?id=1lKY77psSw7Y4FTcVZzs82_k9gvtp0RFN&usp=sharing) | Los límites de las **aldeas** hondureñas (el nivel administrativo debajo de los municipos). | The boundaries of Honduran **aldeas** (the administrative level below municipalities).
 
 ---------
 
 
-### Más información y descargos de responsabilidad
+### Más información y descargos de responsabilidad sobre las hojas de cálculo
 
 Todo el mundo puede:
 
@@ -42,7 +41,7 @@ Los datos pueden contener errores. Las hojas de cálculo son obras en marcha. Pu
 
 ¿Preguntas? Encuéntrame en Twitter [@bret_abel](https://twitter.com/bret_abel/). 💁‍♂️
 
-### Further information and disclaimers
+### Further information and disclaimers regarding the Google Sheets
 
 Everybody is free to:
 
